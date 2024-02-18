@@ -5,6 +5,7 @@ const connectDB = require("./db/connect");
 const notFound = require("./middleware/notFound");
 const errorHandler = require("./middleware/errorHandler");
 const accountsRouter = require("./routes/accounts");
+const jobsRouter = require("./routes/jobs");
 
 const express = require("express");
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use("/api/v1/accounts", accountsRouter);
+app.use("/api/v1/jobs", jobsRouter);
 
 app.use(notFound);
 app.use(errorHandler);

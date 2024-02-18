@@ -60,9 +60,43 @@ const login = async (req, res) => {
   res.status(StatusCodes.ACCEPTED).json({ msg: "Login Successful", token });
 };
 
+const updateAccount = async (req, res) => {
+  const { _id } = req.user;
+  const { name, email, password } = req.body;
+  const updateFields = {};
+  if (name) {
+    updateFields.name = name;
+  }
+  if (email) {
+    updateFields.email = email;
+  }
+  if (password) {
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
+    updateFields.password = hash;
+  }
+
+  const account = await Accounts.findOneAndUpdate(
+    { _id: _id },
+    { $set: updateFields },
+    { new: true }
+  );
+
+  const token = jwt.sign(
+    { _id: account._id, username: account.name },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: "14d",
+    }
+  );
+  res
+    .status(StatusCodes.CREATED)
+    .json({ msg: "Account updated successfully", token });
+};
+
 const dashBoard = async (req, res) => {
   const { username } = req.user;
   res.status(200).json({ name: username });
 };
 
-module.exports = { signUp, login, dashBoard };
+module.exports = { signUp, login, dashBoard, updateAccount };
