@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 
-const jobSchema = new mongoose.Schema({
+const scholarSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "Title must be provided"],
     trim: true,
-    // maxlength: [50, "Title cannot be more than 20 characters!"],
+    // maxlength: [20, "Title cannot be more than 20 characters!"],
   },
-  company: {
+  organization: {
     type: String,
-    required: [true, "Company must be provided"],
+    required: [true, "organization must be provided"],
     trim: true,
-    // maxlength: [50, "Company cannot be more than 40 characters!"],
+    // maxlength: [20, "organization cannot be more than 20 characters!"],
   },
   location: {
     type: String,
@@ -23,12 +23,8 @@ const jobSchema = new mongoose.Schema({
     type: String,
     required: [true, "Description must be provided"],
     trim: true,
-    // maxlength: [150, "Description cannot be more than 150 characters!"],
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now(),
+    // maxlength: [80, "Description cannot be more than 40 characters!"],
   },
 });
 
-module.exports = mongoose.model("Jobs", jobSchema);
+module.exports = mongoose.model("Scholarships", scholarSchema);

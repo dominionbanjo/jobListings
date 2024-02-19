@@ -5,25 +5,25 @@ const internshipSchema = new mongoose.Schema({
     type: String,
     required: [true, "Title must be provided"],
     trim: true,
-    maxlength: [20, "Title cannot be more than 20 characters!"],
+    // maxlength: [20, "Title cannot be more than 20 characters!"],
   },
   organization: {
     type: String,
     required: [true, "organization must be provided"],
     trim: true,
-    maxlength: [20, "organization cannot be more than 20 characters!"],
+    // maxlength: [20, "organization cannot be more than 20 characters!"],
   },
   location: {
     type: String,
     required: [true, "Location must be provided"],
     trim: true,
-    maxlength: [20, "Location cannot be more than 20 characters!"],
+    // maxlength: [20, "Location cannot be more than 20 characters!"],
   },
   description: {
     type: String,
     required: [true, "Description must be provided"],
     trim: true,
-    maxlength: [40, "Description cannot be more than 40 characters!"],
+    // maxlength: [80, "Description cannot be more than 40 characters!"],
   },
 });
 

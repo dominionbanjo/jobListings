@@ -1,2 +1,6 @@
 node_modules
 .env
+# internship.json
+# jobs.json
+# populate.js
+# scholarship.json
