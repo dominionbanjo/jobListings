@@ -25,6 +25,10 @@ const internshipSchema = new mongoose.Schema({
     trim: true,
     // maxlength: [80, "Description cannot be more than 40 characters!"],
   },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 module.exports = mongoose.model("Internships", internshipSchema);

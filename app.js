@@ -6,6 +6,8 @@ const notFound = require("./middleware/notFound");
 const errorHandler = require("./middleware/errorHandler");
 const accountsRouter = require("./routes/accounts");
 const jobsRouter = require("./routes/jobs");
+const internshipsRouter = require("./routes/internships");
+const scholarshipsRouter = require("./routes/scholarships");
 
 const express = require("express");
 const app = express();
@@ -15,6 +17,8 @@ app.use(morgan("dev"));
 
 app.use("/api/v1/accounts", accountsRouter);
 app.use("/api/v1/jobs", jobsRouter);
+app.use("/api/v1/internships", internshipsRouter);
+app.use("/api/v1/scholarships", scholarshipsRouter);
 
 app.use(notFound);
 app.use(errorHandler);
