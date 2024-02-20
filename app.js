@@ -8,6 +8,7 @@ const accountsRouter = require("./routes/accounts");
 const jobsRouter = require("./routes/jobs");
 const internshipsRouter = require("./routes/internships");
 const scholarshipsRouter = require("./routes/scholarships");
+const applicationsRouter = require("./routes/applications");
 
 const express = require("express");
 const app = express();
@@ -19,6 +20,7 @@ app.use("/api/v1/accounts", accountsRouter);
 app.use("/api/v1/jobs", jobsRouter);
 app.use("/api/v1/internships", internshipsRouter);
 app.use("/api/v1/scholarships", scholarshipsRouter);
+app.use("/api/v1/applications", applicationsRouter);
 
 app.use(notFound);
 app.use(errorHandler);
